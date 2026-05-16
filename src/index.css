@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-950 text-slate-200 font-sans antialiased;
+    background:
+      radial-gradient(60% 60% at 20% 0%, rgba(34, 211, 238, 0.06) 0%, transparent 60%),
+      radial-gradient(60% 60% at 80% 100%, rgba(167, 139, 250, 0.06) 0%, transparent 60%),
+      #05070a;
+  }
+  ::selection {
+    background: rgba(34, 211, 238, 0.35);
+    color: white;
+  }
+}
+
+@layer components {
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-5 sm:px-8;
+  }
+  .container-wide {
+    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  }
+  .card {
+    @apply rounded-2xl border border-white/5 bg-white/[0.03] backdrop-blur-sm
+           shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-300;
+  }
+  .card-interactive {
+    @apply card hover:border-accent-cyan/30 hover:bg-white/[0.05] hover:-translate-y-1
+           hover:shadow-glow-cyan;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10
+           bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300;
+  }
+  .chip-accent {
+    @apply chip border-accent-cyan/30 bg-accent-cyan/10 text-accent-cyan;
+  }
+  .heading-gradient {
+    @apply bg-gradient-to-r from-accent-cyan via-accent-mint to-accent-violet bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+  .section-title {
+    @apply font-mono text-xs uppercase tracking-[0.3em] text-accent-cyan/80;
+  }
+  .glow-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-accent-cyan/40 to-transparent;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262c3a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4252;
+}
